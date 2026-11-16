@@ -1,43 +1,52 @@
-# Astro Starter Kit: Minimal
+# Frente a la sociedad — blog (prueba UF1846)
+
+Blog personal en Astro. El tema es parar un momento y escribir sobre cosas que a menudo no se dicen en voz alta (emociones, salud mental, pasado, futuro…).
+
+## Qué hace
+
+- Home con presentación del proyecto
+- Blog con listado, paginación y página de cada artículo
+- Páginas de about y contacto
+- Menú y pie comunes
+- Panel de admin Decap CMS en `/admin` (para gestionar posts)
+
+## Cómo probarlo
 
 ```sh
-pnpm create astro@latest -- --template minimal
+pnpm install
+pnpm dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Build:
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+pnpm build
+pnpm preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Para el CMS en local (si lo usas):
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```sh
+pnpm cms
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+Demo: https://hilarious-smakager-4328a2.netlify.app  
+Repo: https://github.com/moussijoelle/blog-frente-a-la-sociedad
 
-## 🧞 Commands
+## Cómo lo construí
 
-All commands are run from the root of the project, from a terminal:
+- Astro + Tailwind
+- Posts en Markdown dentro de content collections (`src/content/`)
+- Layout en `src/layouts/Layout.astro`, menú y footer en componentes
+- Rutas del blog: listado, paginación (`blog/[page]`) y detalle (`blog/[id]`)
+- Utilidades en `src/utils/blog.ts`
+- Despliegue en Netlify (`netlify.toml`: `pnpm run build` → carpeta `dist`)
+- Decap CMS configurado en `public/admin/`
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Cómo comprobarlo
 
-## 👀 Want to learn more?
+No hay suite de tests. Reviso la home, el listado del blog, abro un artículo, about y contacto. Si toca el CMS, entro en `/admin` con el flujo que tengas configurado en Netlify Identity.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+---
+
+Moussi Joelle · [github.com/moussijoelle](https://github.com/moussijoelle)
