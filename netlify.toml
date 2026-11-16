@@ -1,0 +1,6 @@
+[build]
+  command = "corepack enable && pnpm build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
